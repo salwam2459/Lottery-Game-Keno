@@ -1,176 +1,131 @@
-Keno Lottery Game Simulation
-A fully interactive casino-style Keno game built with JavaFX, featuring programmatic UI construction, event-driven gameplay, and dynamic animations. This single-player lottery simulation offers an engaging user experience with real-time number drawing, win calculations, and comprehensive game state management.
-Overview
-This application recreates the popular casino and state lottery game Keno with a polished JavaFX interface. Players select their lucky numbers (or let the system choose randomly), watch as 20 numbers are drawn with animated reveals, and track their winnings across multiple drawing rounds. The project demonstrates advanced GUI programming without relying on FXML or Scene Builder, showcasing pure JavaFX component architecture.
-Key Features
-Interactive Gameplay
+# Keno Lottery Game
 
-Dynamic Bet Card: 8x10 GridPane with 80 clickable nodes for number selection
-Flexible Betting: Choose 1, 4, 8, or 10 spot games with varying payout structures
-Multi-Drawing Support: Play the same bet card across 1-4 consecutive drawings
-Quick Pick Feature: Automated random number selection for players who prefer instant play
-Real-Time Drawing Animation: 20 numbers revealed one-by-one with pause transitions for dramatic effect
-Live Win Tracking: Instant feedback on matched numbers and winnings per drawing, plus cumulative totals
+## What Is This?
+- A casino-style **Keno lottery game** you can play on your computer
+- Built using **JavaFX** (a Java tool for making graphical apps)
+- Single-player game where you pick numbers and watch them get drawn
+- Tracks your winnings across multiple rounds
 
-User Interface Design
+---
 
-Welcome Screen: Dedicated intro scene with menu navigation and game rules access
-Game Play Screen: Comprehensive layout with bet card, spot selection, drawing controls, and results display
-Menu System:
+## How to Play
+- **Step 1 – Choose your spots:** Decide how many numbers you want to play (1, 4, 8, or 10)
+- **Step 2 – Pick your numbers:** Click up to 80 numbers on the board, or hit **Quick Pick** to let the game choose for you
+- **Step 3 – Set your drawings:** Choose how many rounds to play (1–4)
+- **Step 4 – Watch the draw:** 20 numbers are revealed one at a time — matched numbers light up!
+- **Step 5 – See your winnings:** View your results and choose to play again or quit
 
-Rules display for new players
-Odds calculator showing payout tables
-"New Look" feature for dynamic UI theme changes
-Exit functionality
+---
 
+## Key Features
 
-Visual Feedback: Selected numbers highlighted, matched numbers indicated, disabled states for proper game flow
-Error Prevention: Input validation preventing duplicate selections, over-selection, and illegal game states
+### Gameplay
+- Clickable number grid (8×10, numbers 1–80)
+- Choose between 1-spot, 4-spot, 8-spot, or 10-spot games
+- Play the same numbers across up to 4 rounds
+- Quick Pick for instant random number selection
+- Numbers are drawn one by one with a dramatic animation
+- Win totals update live after each round
 
-Game Flow Management
+### Menus & Screens
+- **Welcome screen** with a clear Start button
+- **Rules screen** explaining how to play
+- **Odds calculator** showing payout tables
+- **"New Look" button** that changes the app's color theme
+- Exit option available from the menu
 
-State-Driven Architecture: Programmatic control ensuring players follow proper betting sequence
-Controlled Progression: "Continue" prompts and pause transitions maintain game pacing
-Dynamic Component States: UI elements enable/disable based on game phase (setup vs. active drawing)
-Reset Functionality: Clean slate between rounds with option to start new games or exit
+### Smart Game Flow
+- Buttons automatically enable/disable based on where you are in the game
+- Prevents you from picking too many numbers or making invalid selections
+- Prompts guide you step by step so you never get confused
 
-Technologies Used
-Frontend
+---
 
-JavaFX for complete GUI framework
-Programmatic UI construction (no FXML/Scene Builder)
-GridPane for structured bet card layout
-Scene-based navigation for multi-screen experience
-PauseTransition for animation timing
+## Payout Structure
+*Based on North Carolina State Lottery Keno odds:*
 
-Backend
+- **1 Spot:** Win by matching 1 number
+- **4 Spots:** Win by matching 2, 3, or 4 numbers
+- **8 Spots:** Win by matching 4–8 numbers
+- **10 Spots:** Win by matching 5–10 numbers
+- The more numbers you match, the bigger the payout — full odds shown in-game
 
-Java for game logic and state management
-Random number generation with duplicate prevention
-Payout calculation engine based on NC State Lottery odds
-Maven for build management
+---
 
-Testing
+## Tech Used
 
-JUnit 5 with 25+ comprehensive unit tests
-Test coverage for game logic, payout calculations, and number matching
+### Frontend (What You See)
+- **JavaFX** — builds the entire visual interface in code (no drag-and-drop tools)
+- Grid layout for the number board
+- Animations for the number drawing sequence
+- Multiple screens (welcome → game → results)
 
-Game Rules
-How to Play
+### Backend (What Runs the Game)
+- **Java** — handles all the game rules and math
+- Random number generator (no repeats)
+- Payout calculator based on real lottery odds
+- **Maven** — manages the project build
 
-Choose Your Spots: Select how many numbers to play (1, 4, 8, or 10 spots)
-Pick Your Numbers: Click numbers 1-80 on the bet card, or use Quick Pick for random selection
-Set Drawings: Decide how many times to play your bet card (1-4 drawings)
-Watch & Win: Twenty numbers are drawn randomly; match your numbers to win based on payout table
-Play Again: After all drawings complete, start a new game or cash out
+### Testing
+- **JUnit 5** — 25+ automated tests
+- Tests cover game logic, payout math, and number matching
 
-Payout Structure
-Based on North Carolina State Lottery Keno payouts:
+---
 
-1 Spot: Match 1 number
-4 Spots: Match 2-4 numbers
-8 Spots: Match 4-8 numbers
-10 Spots: Match 5-10 numbers
+## How to Run It
 
-Higher matches yield exponentially better payouts (specific odds displayed in-game via Rules menu)
-Technical Highlights
-Frontend Development Skills
+### What You Need First
+- Java JDK 11 or newer
+- Maven 3.6.3 or newer
 
-Programmatic JavaFX component creation and styling
-Event-driven architecture with comprehensive event handlers
-Multi-scene application with smooth transitions
-GridPane mastery for complex grid-based layouts
-Dynamic UI state management (enable/disable controls based on game phase)
-User experience design with visual feedback and pacing controls
-Animation integration for engaging gameplay
-Input validation and error prevention
-Menu system implementation with multiple navigation paths
+### Start the Game
+```bash
+mvn clean javafx:run
+```
 
-Software Engineering Practices
+### Run the Tests
+```bash
+mvn test
+```
 
-Maven project structure and dependency management
-Test-driven development with JUnit 5
-Separation of concerns (UI vs. game logic)
-State management for complex application flow
-Comprehensive input validation
+---
 
-Project Structure
+## Project Structure
+```
 Project2Fall2025/
-├── src/main/java/         
-│   ├── JavaFXTemplate.java      # Main application entry
-│   ├── GameLogic.java           # Keno game rules and calculations
-│   ├── BetCard.java             # Player number selections
-│   └── [additional classes]     
-├── src/test/java/         
-│   └── [JUnit test files]       # 25+ unit tests
-└── pom.xml                      # Maven configuration
-Installation & Running
-Prerequisites
+├── src/main/java/
+│   ├── JavaFXTemplate.java   ← Launches the app
+│   ├── GameLogic.java        ← Game rules & payout math
+│   ├── BetCard.java          ← Stores your number picks
+│   └── [other files]
+├── src/test/java/
+│   └── [25+ test files]
+└── pom.xml                   ← Maven config
+```
 
-Java JDK 11 or higher
-Maven 3.6.3 or higher
+---
 
-Run the Application
-bashmvn clean javafx:run
-Run Tests
-bashmvn test
-Design Philosophy
-This project prioritizes user experience through careful attention to:
+## Design Choices
+- **Animations slow things down on purpose** — so you can follow along and enjoy the reveal
+- **Buttons gray out** when you can't use them — no guessing what to do next
+- **Everything is coded by hand** — no drag-and-drop UI builder, showing deep JavaFX knowledge
+- **Guided flow** — the game walks you through each step clearly
 
-Pacing: Animations and pause transitions prevent information overload
-Clarity: Visual states clearly indicate what's clickable, selected, and matched
-Guidance: Prompts and disabled states guide players through proper game sequence
-Feedback: Immediate visual response to all user interactions
-Accessibility: Clear labeling, logical layout, and intuitive controls
+---
 
-The programmatic UI construction (vs. FXML) demonstrates deep understanding of JavaFX component hierarchy, layout managers, and event handling.
-UI/UX Features
-Welcome Screen
+## About This Project
+- Built for **CS 342 (Software Design)** at the University of Illinois at Chicago
+- Demonstrates: JavaFX, event-driven design, UI/UX principles, unit testing, and Maven
 
-Clean introduction with branding
-Menu access to rules and odds before playing
-Single "Start" button for clear call-to-action
+---
 
-Game Screen
+## Future Features
+- Multiple bet cards per game
+- Real money/bankroll simulation
+- Stats dashboard with game history
+- Multiplayer with leaderboards
+- Keyboard navigation & screen reader support
 
-Organized layout with distinct sections for bet card, controls, and results
-Visual differentiation between enabled/disabled states
-Matched numbers highlighted during drawing reveals
-Running totals for transparency
-"New Look" feature demonstrating CSS-like dynamic styling changes
+---
 
-User Flow Controls
-
-Spot selection → Number picking → Drawing count → Start drawing → View results → Continue/New game
-Input validation at each step prevents errors
-Clear prompts guide players to next action
-
-Development Approach
-This project was built with a design-first methodology:
-
-Wireframing: Sketched complete UI before coding
-Component Mapping: Identified all JavaFX components and layout managers
-Event Flow Planning: Mapped all user interactions and state changes
-Programmatic Thinking: Planned enable/disable logic and validation checks
-Iterative Testing: Built game logic with unit tests before GUI integration
-
-Academic Context
-Developed as part of CS 342 (Software Design) at the University of Illinois at Chicago, demonstrating:
-
-Advanced JavaFX GUI programming
-Event-driven software architecture
-User interface and user experience design principles
-Test-driven development practices
-Maven build system proficiency
-
-Future Enhancements
-
-Multiple bet cards per game
-Betting amounts and bankroll management
-Historical statistics and analytics dashboard
-Multiplayer support with leaderboards
-Accessibility features (screen reader support, keyboard navigation)
-Mobile-responsive design
-
-License
-Academic project for University of Illinois at Chicago.
+*Academic project — University of Illinois at Chicago*
